@@ -1,0 +1,28 @@
+<div class="container">
+    <form (ngSubmit)="saveSubscription()">
+      <div class="form-group">
+        <label for="subscriptionName">Subscription Name:</label>
+        <input type="text" class="form-control" id="subscriptionName" name="subscriptionName" [(ngModel)]="subscriptionName" required>
+      </div>
+      
+      <div *ngFor="let row of gridDetail; let i = index" class="row mb-3">
+        <div class="col-md-4">
+          <label>Date:</label>
+          <input type="date" class="form-control" name="date{{i}}" [(ngModel)]="row.date" required>
+        </div>
+        <div class="col-md-4">
+          <label>Start Time:</label>
+          <input type="time" class="form-control" name="startTime{{i}}" [(ngModel)]="row.startTime" required>
+        </div>
+        <div class="col-md-4">
+          <label>End Time:</label>
+          <input type="time" class="form-control" name="endTime{{i}}" [(ngModel)]="row.endTime" required>
+          <button class="btn btn-danger mt-2" (click)="removeRow(i)">Remove Row</button>
+        </div>
+      </div>
+    
+      <button class="btn btn-secondary" (click)="addRow()">Add Row</button>
+      <button type="submit" class="btn btn-primary">Save Subscription</button>
+    </form>
+  </div>
+  

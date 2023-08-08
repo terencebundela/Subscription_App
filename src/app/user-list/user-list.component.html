@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>User List</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of userList">
+      <div *ngFor="let detail of user.gridDetail">
+        <p><strong>Subscription Name:</strong> {{ user.subscriptionName }}</p>
+        <p><strong>Date:</strong> {{ detail.date | date }}</p>
+        <p><strong>Start Time:</strong> {{ detail.startTime }}</p>
+        <p><strong>End Time:</strong> {{ detail.endTime }}</p>
+      </div>
+      <div class="user-actions">
+        <button class="btn btn-info" (click)="editUser(user)">Edit</button>
+        <button class="btn btn-danger" (click)="removeUser(user)">Remove</button>
+      </div>
+    </li>
+  </ul>
+</div>
